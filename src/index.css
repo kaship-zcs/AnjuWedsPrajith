@@ -1,0 +1,479 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+Malayalam:wght@400;600&display=swap');
+
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────
+   Design Tokens – Kasavu Theme
+────────────────────────────────────────── */
+:root {
+  --ivory:   #FDFBF7;
+  --gold:    #D4AF37;
+  --gold-light: #F0D060;
+  --gold-dark:  #B8960C;
+  --crimson: #8B0000;
+  --crimson-light: #C0392B;
+  --text-primary: #2C1810;
+  --text-secondary: #5C4033;
+  --glass-bg: rgba(253, 251, 247, 0.45);
+  --glass-border: rgba(212, 175, 55, 0.28);
+  --neu-bg: #FDFBF7;
+  --neu-shadow-light: rgba(255,255,255,0.85);
+  --neu-shadow-dark: rgba(174,152,110,0.38);
+
+  /* safe-area insets for iPhone notch / home bar */
+  --sat: env(safe-area-inset-top, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+}
+
+/* ──────────────────────────────────────────
+   Base
+────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  /* use 100dvh so mobile browsers exclude their chrome */
+  height: 100%;
+  -webkit-text-size-adjust: 100%;   /* stop iOS auto-enlarging text */
+}
+
+body {
+  background-color: var(--ivory);
+  color: var(--text-primary);
+  font-family: 'Playfair Display', serif;
+  overflow-x: hidden;
+  min-height: 100%;
+  /* extra bottom padding for bottom-nav on mobile */
+  padding-bottom: calc(64px + var(--sab));
+}
+
+@media (min-width: 768px) {
+  body { padding-bottom: 0; }
+}
+
+/* ──────────────────────────────────────────
+   Typography helpers
+────────────────────────────────────────── */
+.font-script  { font-family: 'Great Vibes', cursive; }
+.font-serif   { font-family: 'Playfair Display', serif; }
+.font-mal     { font-family: 'Noto Sans Malayalam', sans-serif; }
+
+/* ──────────────────────────────────────────
+   Glassmorphism
+────────────────────────────────────────── */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.25rem;
+  box-shadow:
+    0 8px 32px rgba(139,0,0,0.06),
+    0 2px 8px rgba(212,175,55,0.10);
+}
+
+/* ──────────────────────────────────────────
+   Neumorphism
+────────────────────────────────────────── */
+.neu-btn {
+  background: var(--neu-bg);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+  box-shadow:
+    6px 6px 12px var(--neu-shadow-dark),
+   -6px -6px 12px var(--neu-shadow-light);
+  transition: box-shadow 0.18s ease, transform 0.13s ease;
+}
+.neu-btn:active {
+  box-shadow:
+    inset 4px 4px 8px var(--neu-shadow-dark),
+    inset -4px -4px 8px var(--neu-shadow-light);
+  transform: scale(0.96);
+}
+
+.neu-card {
+  background: var(--neu-bg);
+  border-radius: 1.5rem;
+  box-shadow:
+    10px 10px 20px var(--neu-shadow-dark),
+   -10px -10px 20px var(--neu-shadow-light);
+}
+
+.neu-inset {
+  background: var(--neu-bg);
+  border-radius: 1rem;
+  box-shadow:
+    inset 4px 4px 10px var(--neu-shadow-dark),
+    inset -4px -4px 10px var(--neu-shadow-light);
+}
+
+/* ──────────────────────────────────────────
+   Gold dividers
+────────────────────────────────────────── */
+.gold-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.gold-dot-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  width: 100%;
+}
+.gold-dot-row::before,
+.gold-dot-row::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+}
+.gold-dot-row::before { background: linear-gradient(90deg, transparent, var(--gold)); }
+.gold-dot-row::after  { background: linear-gradient(90deg, var(--gold), transparent); }
+
+/* ──────────────────────────────────────────
+   Countdown circles
+────────────────────────────────────────── */
+.countdown-circle {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  background: var(--neu-bg);
+  box-shadow:
+    5px 5px 12px var(--neu-shadow-dark),
+   -5px -5px 12px var(--neu-shadow-light);
+}
+@media (min-width: 375px) { .countdown-circle { width: 68px; height: 68px; } }
+@media (min-width: 480px) { .countdown-circle { width: 78px; height: 78px; } }
+@media (min-width: 640px) { .countdown-circle { width: 92px; height: 92px; } }
+
+/* ──────────────────────────────────────────
+   Scrollbar
+────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+/* ──────────────────────────────────────────
+   Wave / liquid loader — Kasavu theme
+────────────────────────────────────────── */
+.loader {
+  width: clamp(110px, 30vw, 150px);
+  height: clamp(110px, 30vw, 150px);
+  background-color: var(--crimson);
+  border-radius: 50%;
+  position: relative;
+  box-shadow:
+    0 0 30px 4px rgba(0, 0, 0, 0.35) inset,
+    0 5px 12px rgba(139, 0, 0, 0.22),
+    0 0 0 6px rgba(212, 175, 55, 0.18);
+  overflow: hidden;
+}
+.loader::before,
+.loader::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -40%;
+}
+.loader::before {
+  border-radius: 30%;
+  background: rgba(212, 175, 55, 0.38);
+  animation: kasavu-wave 5s linear infinite;
+}
+.loader::after {
+  border-radius: 45%;
+  background: rgba(253, 251, 247, 0.55);
+  animation: kasavu-wave 5s linear infinite 0.75s;
+}
+@keyframes kasavu-wave {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ──────────────────────────────────────────
+   Canvas layer
+────────────────────────────────────────── */
+#hero-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ──────────────────────────────────────────
+   Utilities
+────────────────────────────────────────── */
+.text-gold    { color: var(--gold); }
+.text-crimson { color: var(--crimson); }
+.bg-ivory     { background-color: var(--ivory); }
+
+/* Fluid section padding */
+.section-pad  { padding: 3.5rem 1rem; }
+@media (min-width: 480px)  { .section-pad { padding: 5rem 1.25rem; } }
+@media (min-width: 768px)  { .section-pad { padding: 6rem 2rem; } }
+@media (min-width: 1024px) { .section-pad { padding: 7.5rem 2.5rem; } }
+
+/* Minimum tap targets — 48px on mobile for accessibility */
+.neu-btn, button, a[role="button"] {
+  min-height: 48px;
+  min-width: 48px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent text overflow */
+p, h1, h2, h3, span, label {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Input reset — 16px prevents iOS zoom */
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: 16px;
+  border-radius: 0;
+}
+
+/* Focus ring for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ──────────────────────────────────────────
+   Mobile bottom navigation bar
+────────────────────────────────────────── */
+.bottom-nav {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  background: rgba(253, 251, 247, 0.92);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border-top: 1px solid var(--glass-border);
+  padding: 0.5rem 0 calc(0.5rem + var(--sab));
+  box-shadow: 0 -4px 20px rgba(139,0,0,0.06);
+}
+.bottom-nav a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  padding: 0.4rem 0.25rem;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-family: 'Playfair Display', serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.18s;
+  min-height: 52px;
+  -webkit-tap-highlight-color: transparent;
+}
+.bottom-nav a.active,
+.bottom-nav a:active {
+  color: var(--crimson);
+}
+@media (min-width: 768px) {
+  .bottom-nav { display: none; }
+}
+
+/* ──────────────────────────────────────────
+   Desktop layout system
+────────────────────────────────────────── */
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-outer {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(4rem,8vh,8rem) clamp(1rem,4vw,2rem) clamp(3rem,5vh,5rem);
+  width: 100%;
+}
+
+.hero-row {
+  width: 100%;
+  max-width: 1280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+.hero-card-col {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: min(96vw, 480px);
+}
+
+.hero-deco-col {
+  display: none;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 1100px) {
+  .hero-deco-col  { display: flex; }
+  .hero-card-col  { max-width: 520px; }
+}
+
+/* ── RSVP desktop grid ── */
+.rsvp-outer { max-width: 1100px; margin: 0 auto; width: 100%; padding: 0 clamp(1rem,4vw,2rem); }
+
+.rsvp-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 900px) {
+  .rsvp-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+}
+
+/* Hide deco panel on mobile — show only on desktop */
+.rsvp-deco { display: none; }
+@media (min-width: 900px) {
+  .rsvp-deco { display: block; text-align: left; position: sticky; top: 6rem; }
+}
+
+/* ──────────────────────────────────────────
+   Horizontal scroll snap for mobile event cards
+────────────────────────────────────────── */
+.cards-scroll {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 1rem;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem 1rem 1.5rem;
+  scrollbar-width: none;
+}
+.cards-scroll::-webkit-scrollbar { display: none; }
+.cards-scroll > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  /* fills viewport minus padding, leaving a small peek of next card */
+  width: min(calc(100vw - 3.5rem), 420px);
+}
+@media (min-width: 768px) {
+  .cards-scroll {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    overflow-x: unset;
+    scroll-snap-type: unset;
+    scroll-padding-left: unset;
+    padding: 0;
+    gap: 2rem;
+  }
+  .cards-scroll > * { width: auto; }
+}
+
+/* Event card action buttons — stack on small screens */
+.event-card-btns {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+@media (max-width: 480px) {
+  .event-card-btns { flex-direction: column; gap: 0.6rem; }
+  .event-card-btns a { width: 100% !important; justify-content: center; }
+}
+
+/* ──────────────────────────────────────────
+   Scroll indicator dots for mobile snap
+────────────────────────────────────────── */
+.scroll-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+.scroll-dots span {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--neu-shadow-dark);
+  transition: background 0.2s, transform 0.2s;
+}
+.scroll-dots span.active {
+  background: var(--gold);
+  transform: scale(1.35);
+}
+@media (min-width: 768px) { .scroll-dots { display: none; } }
+
+/* ──────────────────────────────────────────
+   Section anchor scroll offset (bottom-nav compensation)
+────────────────────────────────────────── */
+[id] { scroll-margin-top: 1rem; }
+@media (max-width: 767px) { [id] { scroll-margin-top: 1.5rem; } }
+
+/* ──────────────────────────────────────────
+   Audio FAB — fixed music toggle button
+────────────────────────────────────────── */
+.audio-fab {
+  position: fixed;
+  top: calc(1rem + var(--sat));
+  right: 1rem;
+  z-index: 50;
+}
+
+.audio-fab__btn {
+  width: 48px !important;
+  height: 48px !important;
+  min-height: 48px;
+  min-width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
+}
+
+/* Animated pulse ring shown when music is playing */
+.audio-fab__pulse {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  opacity: 0;
+  animation: fab-pulse 2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes fab-pulse {
+  0%   { transform: scale(1);    opacity: 0.7; }
+  70%  { transform: scale(1.45); opacity: 0; }
+  100% { transform: scale(1.45); opacity: 0; }
+}
+
