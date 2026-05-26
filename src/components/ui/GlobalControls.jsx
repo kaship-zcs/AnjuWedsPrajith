@@ -25,21 +25,41 @@ export default function GlobalControls() {
     const audio = getAudio()
 
     const tryPlay = () => {
+      if (intentRef.current) return
       audio.play()
-        .then(() => { intentRef.current = true; setPlaying(true) })
+        .then(() => {
+          intentRef.current = true
+          setPlaying(true)
+          cleanUpListeners()
+        })
         .catch(() => {})
     }
 
+    // Try immediately on mount (if browser allows autoplay)
     tryPlay()
 
-    /* If autoplay was blocked, listen for first interaction */
+    /* If autoplay was blocked, listen to any valid user gesture */
+    const gestures = ['touchstart', 'touchend', 'click', 'mousedown', 'keydown', 'pointerdown']
     const onGesture = () => {
-      if (!intentRef.current) tryPlay()
+      if (intentRef.current) {
+        cleanUpListeners()
+      } else {
+        tryPlay()
+      }
     }
-    window.addEventListener('pointerdown', onGesture, { once: true })
+
+    const cleanUpListeners = () => {
+      gestures.forEach(evt => {
+        window.removeEventListener(evt, onGesture)
+      })
+    }
+
+    gestures.forEach(evt => {
+      window.addEventListener(evt, onGesture, { passive: true })
+    })
 
     return () => {
-      window.removeEventListener('pointerdown', onGesture)
+      cleanUpListeners()
       /* Don't pause on unmount — audio should keep playing through navigations */
     }
   }, [])
@@ -52,7 +72,10 @@ export default function GlobalControls() {
       setPlaying(false)
     } else {
       audio.play()
-        .then(() => { intentRef.current = true; setPlaying(true) })
+        .then(() => {
+          intentRef.current = true
+          setPlaying(true)
+        })
         .catch(() => {})
     }
   }
@@ -79,7 +102,14 @@ export default function GlobalControls() {
           overflow: 'visible',
         }}
         whileTap={{ scale: 0.88 }}
-        onClick={toggleAudio}
+        onClick={(e) => {
+          e.stopPropagation()
+          toggleAudio()
+        }}
+        onPointerDown={(e) => e.stopPropagation()}
+        onTouchStart={(e) => e.stopPropagation()}
+        onTouchEnd={(e) => e.stopPropagation()}
+        onMouseDown={(e) => e.stopPropagation()}
         aria-label={playing ? 'Mute music' : 'Unmute music'}
         title={playing ? 'Mute music' : 'Unmute music'}
       >

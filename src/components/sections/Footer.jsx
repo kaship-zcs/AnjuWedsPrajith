@@ -37,8 +37,9 @@ export default function Footer() {
       >
         <p
           style={{
-            fontFamily: 'Great Vibes, cursive',
-            fontSize: 'clamp(2rem, 7vw, 3rem)',
+            fontFamily: 'Tangerine, cursive',
+            fontWeight: 700,
+            fontSize: 'clamp(3rem, 10vw, 4.2rem)',
             color: 'var(--crimson)',
             lineHeight: 1.1,
             marginBottom: '0.4rem',
@@ -57,8 +58,9 @@ export default function Footer() {
         </p>
         <p
           style={{
-            fontFamily: 'Great Vibes, cursive',
-            fontSize: 'clamp(1.6rem, 6vw, 2.4rem)',
+            fontFamily: 'Tangerine, cursive',
+            fontWeight: 700,
+            fontSize: 'clamp(2.4rem, 8vw, 3.4rem)',
             color: 'var(--text-primary)',
             marginBottom: '1.5rem',
           }}

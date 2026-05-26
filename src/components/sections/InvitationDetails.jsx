@@ -32,8 +32,9 @@ function FamilyCard({ custom, role, name, parentLine, addressLine }) {
       <div className="gold-divider" style={{ marginBottom: '1rem' }} />
       <h3
         style={{
-          fontFamily: 'Great Vibes, cursive',
-          fontSize: 'clamp(2rem, 7vw, 2.8rem)',
+          fontFamily: 'Tangerine, cursive',
+          fontWeight: 700,
+          fontSize: 'clamp(3rem, 9vw, 4rem)',
           color: 'var(--crimson)',
           lineHeight: 1.1,
           marginBottom: '0.75rem',
@@ -67,7 +68,7 @@ export default function InvitationDetails() {
         <p style={{ fontFamily: 'Playfair Display, serif', fontSize: '0.65rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold-dark)', marginBottom: '0.5rem' }}>
           With the Blessings of the Almighty
         </p>
-        <h2 style={{ fontFamily: 'Great Vibes, cursive', fontSize: 'clamp(2.4rem, 8vw, 3.8rem)', color: 'var(--text-primary)' }}>
+        <h2 style={{ fontFamily: 'Tangerine, cursive', fontWeight: 700, fontSize: 'clamp(3.5rem, 10vw, 5rem)', color: 'var(--text-primary)', lineHeight: 1.1 }}>
           The Wedding Invitation
         </h2>
         <GoldDot />

@@ -34,8 +34,9 @@ export default function Preloader3D({ onComplete }) {
       {/* Brand */}
       <p
         style={{
-          fontFamily: 'Great Vibes, cursive',
-          fontSize: '2.4rem',
+          fontFamily: 'Tangerine, cursive',
+          fontWeight: 700,
+          fontSize: '3.6rem',
           color: 'var(--gold)',
           marginTop: '2rem',
           lineHeight: 1.1,

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+Malayalam:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+Malayalam:wght@400;600&display=swap');
 
 @import "tailwindcss";
 
@@ -56,9 +56,21 @@ body {
 /* ──────────────────────────────────────────
    Typography helpers
 ────────────────────────────────────────── */
-.font-script  { font-family: 'Great Vibes', cursive; }
+.font-script  { font-family: 'Tangerine', cursive; }
 .font-serif   { font-family: 'Playfair Display', serif; }
 .font-mal     { font-family: 'Noto Sans Malayalam', sans-serif; }
+
+.tangerine-regular {
+  font-family: "Tangerine", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.tangerine-bold {
+  font-family: "Tangerine", cursive;
+  font-weight: 700;
+  font-style: normal;
+}
 
 /* ──────────────────────────────────────────
    Glassmorphism

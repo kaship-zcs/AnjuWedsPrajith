@@ -53,7 +53,7 @@ function RSVPDeco() {
         <p style={{ fontFamily: 'Playfair Display, serif', fontSize: '0.65rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold-dark)', marginBottom: '0.5rem' }}>
           Your Presence Matters
         </p>
-        <h2 style={{ fontFamily: 'Great Vibes, cursive', fontSize: 'clamp(2.8rem,7vw,4.2rem)', color: 'var(--text-primary)', lineHeight: 1.05 }}>
+        <h2 style={{ fontFamily: 'Tangerine, cursive', fontWeight: 700, fontSize: 'clamp(3.8rem,9vw,5.5rem)', color: 'var(--text-primary)', lineHeight: 1.05 }}>
           RSVP
         </h2>
         <GoldDivider />
@@ -61,7 +61,7 @@ function RSVPDeco() {
 
       <motion.div variants={fadeUp} custom={1} initial="hidden" whileInView="visible" viewport={{ once: true }}
         style={{ marginTop: '1.75rem' }}>
-        <p style={{ fontFamily: 'Great Vibes, cursive', fontSize: 'clamp(1.6rem,4vw,2.6rem)', color: 'var(--crimson)', lineHeight: 1.1, marginBottom: '0.5rem' }}>
+        <p style={{ fontFamily: 'Tangerine, cursive', fontWeight: 700, fontSize: 'clamp(2.4rem,6vw,3.6rem)', color: 'var(--crimson)', lineHeight: 1.1, marginBottom: '0.5rem' }}>
           Anju &amp; Prajith
         </p>
         <p style={{ fontFamily: 'Playfair Display, serif', fontWeight: 600, fontSize: '0.82rem', color: 'var(--text-primary)', marginBottom: '0.25rem' }}>

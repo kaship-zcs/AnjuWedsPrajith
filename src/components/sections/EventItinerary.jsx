@@ -35,7 +35,7 @@ const EVENTS = [
     title: 'Al-Hana Auditorium',
     date: 'Saturday, June 27, 2026',
     time: 'From 3:00 pm onwards',
-    place: 'Al-Hana Auditorium, Karunagappally, Kerala',
+    place: 'Al-Hana Auditorium, Valliyakulangara, Changankulangara, Oachira, Kerala',
     mapUrl: 'https://maps.google.com/?q=Al-Hana+Auditorium+Karunagappally+Kerala',
     calUrl:
       GCal_BASE +
@@ -156,38 +156,38 @@ export default function EventItinerary() {
   return (
     <section className="section-pad">
       <div className="section-inner">
-      {/* Heading */}
-      <motion.div
-        style={{ textAlign: 'center', marginBottom: '3rem' }}
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <p style={{ fontFamily: 'Playfair Display, serif', fontSize: '0.65rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold-dark)', marginBottom: '0.5rem' }}>
-          Mark Your Calendar
-        </p>
-        <h2 style={{ fontFamily: 'Great Vibes, cursive', fontSize: 'clamp(2.4rem, 8vw, 3.8rem)', color: 'var(--text-primary)' }}>
-          Event Details
-        </h2>
-        <div className="gold-dot-row" style={{ maxWidth: 260, margin: '0.75rem auto 0' }}>
-          <span style={{ display: 'inline-block', width: 5, height: 5, borderRadius: '50%', background: 'var(--gold)' }} />
+        {/* Heading */}
+        <motion.div
+          style={{ textAlign: 'center', marginBottom: '3rem' }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <p style={{ fontFamily: 'Playfair Display, serif', fontSize: '0.65rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold-dark)', marginBottom: '0.5rem' }}>
+            Mark Your Calendar
+          </p>
+          <h2 style={{ fontFamily: 'Tangerine, cursive', fontWeight: 700, fontSize: 'clamp(3.5rem, 10vw, 5rem)', color: 'var(--text-primary)', lineHeight: 1.1 }}>
+            Event Details
+          </h2>
+          <div className="gold-dot-row" style={{ maxWidth: 260, margin: '0.75rem auto 0' }}>
+            <span style={{ display: 'inline-block', width: 5, height: 5, borderRadius: '50%', background: 'var(--gold)' }} />
+          </div>
+        </motion.div>
+
+        {/* Scroll-snap cards on mobile, grid on desktop */}
+        <div className="cards-scroll" ref={scrollRef}>
+          {EVENTS.map((ev, i) => (
+            <EventCard key={ev.title} custom={i} {...ev} />
+          ))}
         </div>
-      </motion.div>
 
-      {/* Scroll-snap cards on mobile, grid on desktop */}
-      <div className="cards-scroll" ref={scrollRef}>
-        {EVENTS.map((ev, i) => (
-          <EventCard key={ev.title} custom={i} {...ev} />
-        ))}
-      </div>
-
-      {/* Dot indicators (mobile only) */}
-      <div className="scroll-dots" aria-hidden="true">
-        {EVENTS.map((_, i) => (
-          <span key={i} className={activeDot === i ? 'active' : ''} />
-        ))}
-      </div>
+        {/* Dot indicators (mobile only) */}
+        <div className="scroll-dots" aria-hidden="true">
+          {EVENTS.map((_, i) => (
+            <span key={i} className={activeDot === i ? 'active' : ''} />
+          ))}
+        </div>
       </div>
     </section>
   )

@@ -59,8 +59,9 @@ function RightPanel() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.25rem', opacity: 0.72, maxWidth: 180, textAlign: 'center' }}>
       <p style={{
-        fontFamily: 'Great Vibes, cursive',
-        fontSize: 'clamp(1.6rem, 2.2vw, 2.2rem)',
+        fontFamily: 'Tangerine, cursive',
+        fontWeight: 700,
+        fontSize: 'clamp(2.4rem, 3.2vw, 3.2rem)',
         color: 'var(--gold)',
         lineHeight: 1.15,
       }}>
@@ -157,13 +158,13 @@ export default function HeroScene3D() {
 
             <GoldDivider />
 
-            <h1 style={{ fontFamily: 'Great Vibes, cursive', fontSize: 'clamp(2.3rem,9vw,4rem)', color: 'var(--crimson)', lineHeight: 1.05, marginTop: '1rem' }}>
+            <h1 style={{ fontFamily: 'Tangerine, cursive', fontWeight: 700, fontSize: 'clamp(3.6rem,12vw,5.5rem)', color: 'var(--crimson)', lineHeight: 1.05, marginTop: '0.5rem' }}>
               Adv. Anju Rajendran
             </h1>
-            <p style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(1.1rem,3.5vw,1.4rem)', color: 'var(--gold)', margin: '0.2rem 0' }}>
+            <p style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(1.1rem,3.5vw,1.4rem)', color: 'var(--gold)', margin: '0.1rem 0' }}>
               &amp;
             </p>
-            <h1 style={{ fontFamily: 'Great Vibes, cursive', fontSize: 'clamp(2.3rem,9vw,4rem)', color: 'var(--crimson)', lineHeight: 1.05, marginBottom: '1.1rem' }}>
+            <h1 style={{ fontFamily: 'Tangerine, cursive', fontWeight: 700, fontSize: 'clamp(3.6rem,12vw,5.5rem)', color: 'var(--crimson)', lineHeight: 1.05, marginBottom: '0.6rem' }}>
               Prajith Kumar P.J.
             </h1>
 
