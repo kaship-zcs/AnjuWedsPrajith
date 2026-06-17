@@ -90,7 +90,7 @@ export default function InvitationDetails() {
           Raja Resmi, Changankulangara, Vavvakkavu P.O &nbsp;·&nbsp; Ph: 7306844268
         </p>
         <p style={{ fontFamily: 'Playfair Display, serif', fontStyle: 'italic', fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '0.75rem' }}>
-          Request your gracious presence at the wedding of their daughter
+          Request your gracious presence at the wedding of our daughter
         </p>
       </motion.div>
 
