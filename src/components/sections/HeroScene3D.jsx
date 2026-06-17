@@ -153,7 +153,7 @@ export default function HeroScene3D() {
               Mr. Rajendran Pillai B. &amp; Mrs. Resmi R.
             </p>
             <p style={{ fontFamily: 'Playfair Display, serif', fontStyle: 'italic', fontSize: 'clamp(0.65rem,2vw,0.76rem)', color: 'var(--text-secondary)', marginBottom: '1.1rem', lineHeight: 1.6 }}>
-              request your gracious presence at the wedding of their daughter
+              request your gracious presence at the wedding of our daughter
             </p>
 
             <GoldDivider />
